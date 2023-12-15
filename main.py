@@ -12,6 +12,7 @@ win = False
 root.title("TicTacToe")
 root.minsize(500, 500)
 
+# definition joueur
 def player():
     global player1
     if player1 == "X":
@@ -19,16 +20,14 @@ def player():
     else:
         player1 = "X"
 
+# message gagnant
 def winner():
     global win
     if win is False:
         win = True
         print(f"Le joueur {player1} à gagné le jeu !")
 
-#def match_nul():
-#    print("MATCH NUL !")
-
-def victoire(clicked_row, clicked_column, count2):
+def victoire(clicked_row, clicked_column, count):
     # victoire horizontale
     count = 0
     for i in range(3):
@@ -65,6 +64,7 @@ def victoire(clicked_row, clicked_column, count2):
     if count == 3:
         winner()
     
+    # match nul
     count = 0
     for i in range(3):
         for j in range(3):
@@ -94,7 +94,7 @@ def grille(count2):
             bouton.grid(row=row, column=column)
             boutons_liste.append(bouton)
         boutons.append(boutons_liste)
-    
+
 
 count2 = 0
 grille(count2)
